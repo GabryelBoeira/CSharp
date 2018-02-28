@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Console001
 {
@@ -10,6 +6,15 @@ namespace Console001
     {
         static void Main(string[] args)
         {
+            string nome = string.Empty;
+            Console.WriteLine("Digite seu nome");
+            nome = Console.ReadLine();
+            Console.WriteLine("Ola" + nome);
+            Console.ReadKey();
+
+
+            Console.WriteLine("Hello wordl!");
+            Console.ReadKey();
+        }
         }
     }
-}
