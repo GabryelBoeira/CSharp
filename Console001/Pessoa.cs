@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Console001
+namespace classPessoa
 {
     class Pessoa
     {

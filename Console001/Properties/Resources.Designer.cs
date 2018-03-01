@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Console001.Properties {
+namespace classPessoa.Properties {
     using System;
     
     
