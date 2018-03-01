@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace classPessoa.Properties {
+namespace Pessoa.Properties {
     using System;
     
     
