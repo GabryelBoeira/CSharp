@@ -2,7 +2,7 @@
 
 namespace modelos
 {
-    class Pessoa
+    public class Pessoa
     {
         public int PessoaID { get; set; }
         public string Nome { get; set; }

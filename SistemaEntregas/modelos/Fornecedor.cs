@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace modelos
 {
-    class Fornecedor : Pessoa
+    public class Fornecedor : Pessoa
     {
     }
 }
