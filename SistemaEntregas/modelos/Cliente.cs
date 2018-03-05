@@ -5,8 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace modelos
-{
-   public class Cliente : Pessoa
+{   //cria a classe que corresponde para o cadastro de clientes
+    public class Cliente : Pessoa
     {
     }
 }

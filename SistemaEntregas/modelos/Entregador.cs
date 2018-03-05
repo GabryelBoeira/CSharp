@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace modelos
 {
+    //cria a classe que corresponde para o cadastro de entregadores
     public class Entregador : Pessoa
     {
     }
