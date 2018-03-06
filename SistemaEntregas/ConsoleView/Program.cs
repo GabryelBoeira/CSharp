@@ -9,46 +9,82 @@ namespace ConsoleView
 {
     class Program
     {
-        private static int MenuCliente()
+        enum OpcoesMenuPrincipal
+        {
+            CadastrarCliente,
+            PesquisarCliente,
+            EditarCliente,
+            Limpar,
+            sair
+        }
+
+        private static OpcoesMenuPrincipal MenuCliente()
         {
             Console.WriteLine("Escolha uma opção");
             Console.WriteLine("-- Clientes --");
             Console.WriteLine("1 - Cadastro de Cliente");
             Console.WriteLine("2 - Pesquisar Cliente");
             Console.WriteLine("3 - Editar Cliente");
+            Console.WriteLine("- geral -");
             Console.WriteLine("4 - Limpar Tela");
             Console.WriteLine("5 - Sair");
-            return Convert.ToInt32(Console.ReadLine());
+            //Converter para int
+            //return Convert.ToInt32(Console.ReadLine());
+            string opcao = Console.ReadLine();
+            return (OpcoesMenuPrincipal) int.Parse(opcao);
+
         }
+
+        private static Cliente CadastrarCliente()
+        {
+            Cliente cliente = new Cliente();
+            Console.WriteLine("Nome do Cliente: "+"\n");     
+            cliente.Nome = Console.ReadLine();
+
+            Console.WriteLine("CPF: "+"\n");
+            cliente.Cpf = Console.ReadLine();
+
+            Console.WriteLine("Endereço: " + "\n");
+            cliente._Endereco.complemento = Console.ReadLine();
+
+           Console.WriteLine("Complento: " + "\n");
+           cliente._Endereco.complemento = Console.ReadLine();
+
+
+        }
+
 
         static void Main(string[] args)
         {
-            int opcaoDigita = MenuCliente();
+            OpcoesMenuPrincipal opcaoDigitada = OpcoesMenuPrincipal.sair;
+            do {
+                opcaoDigitada = MenuCliente();
+                switch (opcaoDigitada)
+                {
+                    case OpcoesMenuPrincipal.CadastrarCliente:
+                        CadastrarCliente();
+                        break;
+                    case OpcoesMenuPrincipal.PesquisarCliente:
+                        break;
+                    case OpcoesMenuPrincipal.EditarCliente:
+                        break;
+                    case OpcoesMenuPrincipal.Limpar:
+                        break;
+                    case OpcoesMenuPrincipal.sair:
+                        break;
+                    default:
+                        break;
+                }
+            } while (opcaoDigitada == OpcoesMenuPrincipal.sair);
 
-            switch (opcaoDigita)            {
 
-                case 1:
-                    Console.WriteLine("1");
-                    break;
-                case 2:
-                    Console.WriteLine("2");
-                    break;
-                case 3:
-                    Console.WriteLine("3");
-                    break;
-                case 4:
-                    Console.WriteLine("Limpado");
-                    Console.Clear();
-                    break;
-                case 5:
-                    Console.WriteLine("saindo");
-                    Console.ReadKey();
-                    break;
-                default:
-                    Console.WriteLine("Digito Errado");
-                    break;
+
+
+              
+
+    {
+
             }
-            Console.WriteLine("- geral -");
            
 
         }
