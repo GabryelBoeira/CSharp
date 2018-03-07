@@ -9,6 +9,7 @@ namespace ConsoleView
 {
     class Program
     {
+        //para casos onde não a mudança nas variaveis 
         enum OpcoesMenuPrincipal
         {
             CadastrarCliente = 1,
@@ -18,6 +19,7 @@ namespace ConsoleView
             sair = 5
         }
 
+        //tela com o menu 
         private static OpcoesMenuPrincipal MenuCliente()
         {
             Console.WriteLine("Escolha uma opção");
@@ -33,20 +35,22 @@ namespace ConsoleView
 
         }
 
+        //tela para o cadastro de clientes 
         private static Cliente CadastrarCliente()
         {
+            Console.Clear();
             Cliente cliente = new Cliente();
             cliente._Endereco = new Endereco();
 
-            Console.WriteLine("Nome do Cliente: "+"\n");     
+            Console.WriteLine("Nome do Cliente: " + "\n");
             cliente.Nome = Console.ReadLine();
 
-            Console.WriteLine("CPF: "+"\n");
+            Console.WriteLine("CPF: " + "\n");
             cliente.Cpf = Console.ReadLine();
 
-            Console.WriteLine("-Endereço- "+"\n");
+            Console.WriteLine("-Endereço- " + "\n");
 
-            Console.WriteLine("Rua: " );
+            Console.WriteLine("Rua: ");
             cliente._Endereco.Rua = Console.ReadLine();
 
             Console.WriteLine("Numero: ");
@@ -54,23 +58,39 @@ namespace ConsoleView
 
             Console.WriteLine("Complento: ");
             cliente._Endereco.complemento = Console.ReadLine();
-
             return cliente;
         }
 
+        //mostra dados inseridos pelo usuario na CadastrarCliente()
+        private static void ExibirDadosCliente(Cliente cliente) {
+            Console.Clear();
+            Console.WriteLine("-- Dados do cliente --");
+
+            Console.WriteLine("ID do Cliente: " + cliente.PessoaID);
+            Console.WriteLine("Nome do Cliente: " + cliente.Nome);
+            Console.WriteLine("Cpf do Cliente: " + cliente.Cpf);
+            Console.WriteLine("- Endereço - ");
+            Console.WriteLine("Rua : " + cliente._Endereco.Rua);
+            Console.WriteLine("Número: " + cliente._Endereco.Numero);
+            Console.WriteLine("Complemento: " + cliente._Endereco.complemento);
+
+            Console.ReadKey();
+        }
 
         static void Main(string[] args)
         {
+            Cliente c = new Cliente();
             OpcoesMenuPrincipal opcaoDigitada = OpcoesMenuPrincipal.sair;
             do {
                 opcaoDigitada = MenuCliente();
-                switch (opcaoDigitada)
+                switch (opcaoDigitada)                    
                 {
                     case OpcoesMenuPrincipal.CadastrarCliente:
-                        CadastrarCliente();
+                        c = CadastrarCliente();
+                        ExibirDadosCliente(c);
                         break;
                     case OpcoesMenuPrincipal.PesquisarCliente:
-                        Console.WriteLine("Nome do Cliente: " + "\n");
+                       
                         break;
                     case OpcoesMenuPrincipal.EditarCliente:
                         Console.WriteLine("Nome do Cliente: " + "\n");
