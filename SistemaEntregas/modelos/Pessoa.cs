@@ -5,9 +5,7 @@ namespace modelos
     //cria a classe que corresponde as caracteristicas que seram usados como base 
     public abstract class Pessoa
     {
-        Pessoa () {
-            Endereco _Endereco = new Endereco();
-        }
+       
 
         public int PessoaID { get; set; }
         public string Nome { get; set; }

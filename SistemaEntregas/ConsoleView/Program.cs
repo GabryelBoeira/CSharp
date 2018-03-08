@@ -15,21 +15,24 @@ namespace ConsoleView
             CadastrarCliente = 1,
             PesquisarCliente = 2,
             EditarCliente = 3,
-            Limpar = 4,
-            sair = 5
+            ExcluirCliente = 4,
+            Limpar = 5,
+            sair = 6
         }
 
         //tela com o menu 
         private static OpcoesMenuPrincipal MenuCliente()
         {
+            Console.Clear();
             Console.WriteLine("Escolha uma opção");
             Console.WriteLine("-- Clientes --");
             Console.WriteLine("1 - Cadastro de Cliente");
             Console.WriteLine("2 - Pesquisar Cliente");
             Console.WriteLine("3 - Editar Cliente");
+            Console.WriteLine("4 - Excluir Cliente");
             Console.WriteLine("- geral -");
-            Console.WriteLine("4 - Limpar Tela");
-            Console.WriteLine("5 - Sair");
+            Console.WriteLine("5 - Limpar Tela");
+            Console.WriteLine("6 - Sair");
             string opcao = Console.ReadLine();
             return (OpcoesMenuPrincipal) int.Parse(opcao);
 
@@ -54,7 +57,7 @@ namespace ConsoleView
             cliente._Endereco.Rua = Console.ReadLine();
 
             Console.WriteLine("Numero: ");
-            cliente._Endereco.Numero = 2;
+            cliente._Endereco.Numero = int.Parse(Console.ReadLine()); 
 
             Console.WriteLine("Complento: ");
             cliente._Endereco.complemento = Console.ReadLine();
@@ -82,29 +85,34 @@ namespace ConsoleView
             Cliente c = new Cliente();
             OpcoesMenuPrincipal opcaoDigitada = OpcoesMenuPrincipal.sair;
             do {
+               
                 opcaoDigitada = MenuCliente();
                 switch (opcaoDigitada)                    
                 {
                     case OpcoesMenuPrincipal.CadastrarCliente:
                         c = CadastrarCliente();
+
                         ExibirDadosCliente(c);
                         break;
-                    case OpcoesMenuPrincipal.PesquisarCliente:
-                       
+                    case OpcoesMenuPrincipal.PesquisarCliente:                       
                         break;
                     case OpcoesMenuPrincipal.EditarCliente:
                         Console.WriteLine("Nome do Cliente: " + "\n");
                         break;
-                    case OpcoesMenuPrincipal.Limpar:
+                    case OpcoesMenuPrincipal.ExcluirCliente:
                         Console.WriteLine("Nome do Cliente: " + "\n");
                         break;
+                    case OpcoesMenuPrincipal.Limpar:
+                        Console.Clear();
+                        break;
                     case OpcoesMenuPrincipal.sair:
-                        Console.ReadKey();
+                        Environment.Exit(1);
                         break;
                     default:
                         Console.WriteLine("Nome do : " + "\n");
                         break;
                 }
+                MenuCliente();
             } while (opcaoDigitada == OpcoesMenuPrincipal.sair);
                  
        {
