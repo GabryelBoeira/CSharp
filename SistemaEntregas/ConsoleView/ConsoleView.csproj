@@ -47,9 +47,19 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>
+    </ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -65,9 +75,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ClassLibrary1\Controller.csproj">
+    <ProjectReference Include="..\ClassLibrary1\controller.csproj">
       <Project>{b1e270e9-f739-4707-827d-cb8e4765470d}</Project>
-      <Name>Controller</Name>
+      <Name>controller</Name>
     </ProjectReference>
     <ProjectReference Include="..\modelos\modelos.csproj">
       <Project>{dc033ab0-c506-4e09-aa05-697d53519c7a}</Project>

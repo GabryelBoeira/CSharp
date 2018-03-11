@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "modelos", "modelos\modelos.csproj", "{DC033AB0-C506-4E09-AA05-697D53519C7A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleView", "ConsoleView\ConsoleView.csproj", "{FC1C18A5-0FF2-473A-8B69-1CEB254E569A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Controller", "ClassLibrary1\Controller.csproj", "{B1E270E9-F739-4707-827D-CB8E4765470D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "controller", "ClassLibrary1\controller.csproj", "{B1E270E9-F739-4707-827D-CB8E4765470D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,5 +30,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2950031F-BA68-4356-807D-487E1E8FDC58}
 	EndGlobalSection
 EndGlobal
