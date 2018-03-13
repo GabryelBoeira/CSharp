@@ -25,15 +25,14 @@ namespace ConsoleView
             //Intaciamento padrão para as classes 
             Cliente c = new Cliente();
             OpcoesMenuPrincipal opcaoDigitada = OpcoesMenuPrincipal.sair;
-
-            do {
-                opcaoDigitada = MenuCliente();
+            opcaoDigitada = MenuCliente();
+            do {              
                     switch (opcaoDigitada)
                     {
                         case OpcoesMenuPrincipal.CadastrarCliente:
                             c = CadastrarCliente();
                             ccontrol.SalvarClientes(c);
-                            ExibirDadosCliente(c);                            
+                            ExibirDadosCliente(c);
                             break;
                         case OpcoesMenuPrincipal.PesquisarCliente:
                             PesquisarCliente();
@@ -42,7 +41,7 @@ namespace ConsoleView
                             Console.WriteLine("EditarCliente: " + "\n");
                             break;
                         case OpcoesMenuPrincipal.ExcluirCliente:
-                            Console.WriteLine("ExcluirCliente: " + "\n");
+                            ExcluirCliente();
                             break;
                         case OpcoesMenuPrincipal.Limpar:
                             Console.Clear();
@@ -52,13 +51,15 @@ namespace ConsoleView
                             break;
                         default:
                             Console.WriteLine("Nome do : " + "\n");
-                            break;
-                    }
-                } while (opcaoDigitada != OpcoesMenuPrincipal.sair);          
+                            break;                        
+                }
+                opcaoDigitada = MenuCliente();
+            } while (opcaoDigitada != OpcoesMenuPrincipal.sair);          
         }
 
         //tela com o menu 
         private static OpcoesMenuPrincipal MenuCliente(){
+            Console.Clear();
             Console.WriteLine("Escolha uma opção");
             Console.WriteLine("-- Clientes --");
             Console.WriteLine("1 - Cadastro de Cliente");
@@ -69,7 +70,7 @@ namespace ConsoleView
             Console.WriteLine("5 - Limpar Tela");
             Console.WriteLine("6 - Sair");
             string opcao = Console.ReadLine();
-            return (OpcoesMenuPrincipal)int.Parse(opcao);
+            return (OpcoesMenuPrincipal)  int.Parse(opcao);
         }
 
         //tela para o cadastro de clientes 
@@ -111,8 +112,7 @@ namespace ConsoleView
             Console.WriteLine("Rua : " + cliente._Endereco.Rua);
             Console.WriteLine("Número: " + cliente._Endereco.Numero);
             Console.WriteLine("Complemento: " + cliente._Endereco.complemento);
-            Console.WriteLine("Aperte qualquer tecla para continuar");
-            Console.Read();
+            
         }
 
         //Pesquisa Cliente Cadastrado
@@ -128,22 +128,13 @@ namespace ConsoleView
             cliente = ccontrol.PesquisarCliente(nomeCliente);
 
             if (cliente != null) {
-                Console.Clear();
-                Console.WriteLine("-- Dados do cliente --");
-                Console.WriteLine("ID do Cliente: " + cliente.PessoaID);
-                Console.WriteLine("Nome do Cliente: " + cliente.Nome);
-                Console.WriteLine("Cpf do Cliente: " + cliente.Cpf);
-                Console.WriteLine("- Endereço - ");
-                Console.WriteLine("Rua : " + cliente._Endereco.Rua);
-                Console.WriteLine("Número: " + cliente._Endereco.Numero);
-                Console.WriteLine("Complemento: " + cliente._Endereco.complemento);
-                Console.WriteLine("Aperte qualquer tecla para continuar");
-                Console.Read();
+                ExibirDadosCliente(cliente);
             }
             else {
                 Console.WriteLine("Cliente não encontrado"+ "\n");
                  }
-
         }
+
+        //
     }
 }
