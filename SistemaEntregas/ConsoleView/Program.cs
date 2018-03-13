@@ -25,8 +25,9 @@ namespace ConsoleView
             //Intaciamento padrão para as classes 
             Cliente c = new Cliente();
             OpcoesMenuPrincipal opcaoDigitada = OpcoesMenuPrincipal.sair;
-            opcaoDigitada = MenuCliente();
+            
             do {
+                opcaoDigitada = MenuCliente();
                 switch (opcaoDigitada)
                 {
                     case OpcoesMenuPrincipal.CadastrarCliente:
@@ -136,7 +137,7 @@ namespace ConsoleView
         }
 
         //excluir Cliente
-        public void ExcluirCliente()
+        private static void ExcluirCliente()
         {
             int idCliente;
 
