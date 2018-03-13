@@ -8,7 +8,7 @@ namespace ConsoleView
     class ViewPrincipal
     {
         public static ClienteController ccontrol = new ClienteController();
-       
+
         //para casos onde não a mudança nas variaveis 
         enum OpcoesMenuPrincipal
         {
@@ -19,46 +19,46 @@ namespace ConsoleView
             Limpar = 5,
             sair = 6
         }
-        
+
         static void Main(string[] args)
         {
             //Intaciamento padrão para as classes 
             Cliente c = new Cliente();
             OpcoesMenuPrincipal opcaoDigitada = OpcoesMenuPrincipal.sair;
             opcaoDigitada = MenuCliente();
-            do {              
-                    switch (opcaoDigitada)
-                    {
-                        case OpcoesMenuPrincipal.CadastrarCliente:
-                            c = CadastrarCliente();
-                            ccontrol.SalvarClientes(c);
-                            ExibirDadosCliente(c);
-                            break;
-                        case OpcoesMenuPrincipal.PesquisarCliente:
-                            PesquisarCliente();
-                            break;
-                        case OpcoesMenuPrincipal.EditarCliente:
-                            Console.WriteLine("EditarCliente: " + "\n");
-                            break;
-                        case OpcoesMenuPrincipal.ExcluirCliente:
-                            ExcluirCliente();
-                            break;
-                        case OpcoesMenuPrincipal.Limpar:
-                            Console.Clear();
-                            break;
-                        case OpcoesMenuPrincipal.sair:
-                            Environment.Exit(1);
-                            break;
-                        default:
-                            Console.WriteLine("Nome do : " + "\n");
-                            break;                        
+            do {
+                switch (opcaoDigitada)
+                {
+                    case OpcoesMenuPrincipal.CadastrarCliente:
+                        c = CadastrarCliente();
+                        ccontrol.SalvarClientes(c);
+                        ExibirDadosCliente(c);
+                        break;
+                    case OpcoesMenuPrincipal.PesquisarCliente:
+                        PesquisarCliente();
+                        break;
+                    case OpcoesMenuPrincipal.EditarCliente:
+                        Console.WriteLine("EditarCliente: " + "\n");
+                        break;
+                    case OpcoesMenuPrincipal.ExcluirCliente:
+                        ExcluirCliente();
+                        break;
+                    case OpcoesMenuPrincipal.Limpar:
+                        Console.Clear();
+                        break;
+                    case OpcoesMenuPrincipal.sair:
+                        Environment.Exit(1);
+                        break;
+                    default:
+                        Console.WriteLine("Nome do : " + "\n");
+                        break;
                 }
                 opcaoDigitada = MenuCliente();
-            } while (opcaoDigitada != OpcoesMenuPrincipal.sair);          
+            } while (opcaoDigitada != OpcoesMenuPrincipal.sair);
         }
 
         //tela com o menu 
-        private static OpcoesMenuPrincipal MenuCliente(){
+        private static OpcoesMenuPrincipal MenuCliente() {
             Console.Clear();
             Console.WriteLine("Escolha uma opção");
             Console.WriteLine("-- Clientes --");
@@ -70,14 +70,14 @@ namespace ConsoleView
             Console.WriteLine("5 - Limpar Tela");
             Console.WriteLine("6 - Sair");
             string opcao = Console.ReadLine();
-            return (OpcoesMenuPrincipal)  int.Parse(opcao);
+            return (OpcoesMenuPrincipal) int.Parse(opcao);
         }
 
         //tela para o cadastro de clientes 
         private static Cliente CadastrarCliente()
         {
             Console.Clear();
-            Cliente cliente  = new Cliente();
+            Cliente cliente = new Cliente();
             cliente._Endereco = new Endereco();
 
             Console.WriteLine("Nome do Cliente: " + "\n");
@@ -112,7 +112,7 @@ namespace ConsoleView
             Console.WriteLine("Rua : " + cliente._Endereco.Rua);
             Console.WriteLine("Número: " + cliente._Endereco.Numero);
             Console.WriteLine("Complemento: " + cliente._Endereco.complemento);
-            
+
         }
 
         //Pesquisa Cliente Cadastrado
@@ -131,10 +131,30 @@ namespace ConsoleView
                 ExibirDadosCliente(cliente);
             }
             else {
-                Console.WriteLine("Cliente não encontrado"+ "\n");
-                 }
+                Console.WriteLine("Cliente não encontrado" + "\n");
+            }
         }
 
-        //
-    }
+        //excluir Cliente
+        public void ExcluirCliente()
+        {
+            int idCliente;
+
+            Console.Clear();
+            Console.Write("Id do Cliente para exclusão: ");
+            idCliente = int.Parse(Console.ReadLine());
+
+             
+
+            if (ccontrol.ExcluirCliente(idCliente))
+            {
+                Console.WriteLine("Cliente Excluido " + "\n");
+            }
+            else
+            {
+                Console.WriteLine("Cliente não encontrado" + "\n");
+            }
+
+        }
+        }
 }

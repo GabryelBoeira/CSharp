@@ -9,23 +9,14 @@ namespace controller
         // São divididas em três Partes uma query LINQ:
         //  1. Uma lista de dados.
         static List<Cliente> MeusCliente = new List<Cliente>();
+        static int ultimoID;
 
         //adiciona cliente 
         public void SalvarClientes(Cliente cliente) {
-            int tamanho = MeusCliente.Count;
-
-            if (tamanho == 0)
-            {
-                cliente.PessoaID = 1;
-                MeusCliente.Add(cliente);
-            }
-            else
-            {
-                cliente.PessoaID = tamanho + 1;
-                MeusCliente.Add(cliente);
-
-            }
-
+            int tamanho = ultimoID +1;
+            ultimoID = tamanho;           
+            cliente.PessoaID = tamanho;
+            MeusCliente.Add(cliente);          
         }
 
         //pesquisa cliente pelo nome
@@ -79,7 +70,7 @@ namespace controller
         }
 
         //Remover Cliente pelo id
-        public bool ExclirCliente(int idCliente) {
+        public bool ExcluirCliente(int idCliente) {
             Cliente cliente = PesquisarClienteId(idCliente);
             if (cliente == null) {
                 return false;
