@@ -82,5 +82,12 @@ namespace controller
             }
 
         }
+
+        //lista com todos os clientes
+        public List<Cliente> ListarCliente()
+        {
+            return MeusCliente;
+
+        }
     }
 }

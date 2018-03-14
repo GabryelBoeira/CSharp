@@ -1,7 +1,7 @@
 ﻿using modelos;
 using System;
 using controller;
-
+using System.Collections.Generic;
 
 namespace ConsoleView
 {
@@ -16,8 +16,9 @@ namespace ConsoleView
             PesquisarCliente = 2,
             EditarCliente = 3,
             ExcluirCliente = 4,
-            Limpar = 5,
-            sair = 6
+            ListarCliente = 5,
+            Limpar = 6,
+            sair = 7
         }
 
         static void Main(string[] args)
@@ -47,6 +48,10 @@ namespace ConsoleView
                     case OpcoesMenuPrincipal.Limpar:
                         Console.Clear();
                         break;
+                    case OpcoesMenuPrincipal.ListarCliente:
+                        ListarCliente();
+                        ;
+                        break;
                     case OpcoesMenuPrincipal.sair:
                         Environment.Exit(1);
                         break;
@@ -54,7 +59,7 @@ namespace ConsoleView
                         Console.WriteLine("Nome do : " + "\n");
                         break;
                 }
-                opcaoDigitada = MenuCliente();
+                
             } while (opcaoDigitada != OpcoesMenuPrincipal.sair);
         }
 
@@ -67,9 +72,10 @@ namespace ConsoleView
             Console.WriteLine("2 - Pesquisar Cliente");
             Console.WriteLine("3 - Editar Cliente");
             Console.WriteLine("4 - Excluir Cliente");
+            Console.WriteLine("5 - Listar todos os clientes");
             Console.WriteLine("- geral -");
-            Console.WriteLine("5 - Limpar Tela");
-            Console.WriteLine("6 - Sair");
+            Console.WriteLine("6 - Limpar Tela");
+            Console.WriteLine("7 - Sair");
             string opcao = Console.ReadLine();
             return (OpcoesMenuPrincipal) int.Parse(opcao);
         }
@@ -113,6 +119,8 @@ namespace ConsoleView
             Console.WriteLine("Rua : " + cliente._Endereco.Rua);
             Console.WriteLine("Número: " + cliente._Endereco.Numero);
             Console.WriteLine("Complemento: " + cliente._Endereco.complemento);
+            Console.WriteLine("Aperte qualquer Tecla para continuar");
+            Console.ReadKey();
 
         }
 
@@ -136,6 +144,11 @@ namespace ConsoleView
             }
         }
 
+        //editar Cliente
+        private static void EditarCliente()
+        {
+        }
+
         //excluir Cliente
         private static void ExcluirCliente()
         {
@@ -144,8 +157,6 @@ namespace ConsoleView
             Console.Clear();
             Console.Write("Id do Cliente para exclusão: ");
             idCliente = int.Parse(Console.ReadLine());
-
-             
 
             if (ccontrol.ExcluirCliente(idCliente))
             {
@@ -157,5 +168,19 @@ namespace ConsoleView
             }
 
         }
+
+        //lista com todos os clientes
+        private static void ListarCliente() {
+
+            List<Cliente> clientes = ccontrol.ListarCliente();
+            foreach (Cliente dados in clientes)
+            {
+                Console.WriteLine("Nome: "+ dados.Nome);
+            }
+            Console.WriteLine("Aperte qualquer Tecla para continuar");
+            Console.ReadKey();
         }
+       
+
+    }
 }
