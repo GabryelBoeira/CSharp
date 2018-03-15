@@ -171,11 +171,17 @@ namespace ConsoleView
 
         //lista com todos os clientes
         private static void ListarCliente() {
+            List<Cliente> lista = ccontrol.ListarCliente();
 
-            List<Cliente> clientes = ccontrol.ListarCliente();
-            foreach (Cliente dados in clientes)
+            if (lista.Count != 0) {
+                foreach (Cliente dados in lista)
+                {
+                    ExibirDadosCliente(dados);
+                }
+            }
+            else
             {
-                Console.WriteLine("Nome: "+ dados.Nome);
+                Console.WriteLine("Não a Cliente ");
             }
             Console.WriteLine("Aperte qualquer Tecla para continuar");
             Console.ReadKey();
