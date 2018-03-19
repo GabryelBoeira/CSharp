@@ -12,7 +12,5 @@ namespace modelos
         public string Cpf { get; set; }
 
         public int EnderecoID { get; set; }
-
-        public Endereco _Endereco { get; set; }
     }
 }

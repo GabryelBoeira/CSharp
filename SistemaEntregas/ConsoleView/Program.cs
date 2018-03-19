@@ -8,7 +8,7 @@ namespace ConsoleView
     class ViewPrincipal
     {
         public static ClienteController ccontrol = new ClienteController();
-
+        public static E
         //para casos onde não a mudança nas variaveis 
         enum OpcoesMenuPrincipal
         {
@@ -85,7 +85,7 @@ namespace ConsoleView
         {
             Console.Clear();
             Cliente cliente = new Cliente();
-            cliente._Endereco = new Endereco();
+            Endereco endereco = new Endereco();
 
             Console.WriteLine("Nome do Cliente: " + "\n");
             cliente.Nome = Console.ReadLine();
@@ -96,13 +96,16 @@ namespace ConsoleView
             Console.WriteLine("-Endereço- " + "\n");
 
             Console.WriteLine("Rua: ");
-            cliente._Endereco.Rua = Console.ReadLine();
+            endereco.Rua = Console.ReadLine();
 
             Console.WriteLine("Numero: ");
-            cliente._Endereco.Numero = int.Parse(Console.ReadLine());
+            endereco.Numero = int.Parse(Console.ReadLine());
 
             Console.WriteLine("Complento: ");
-            cliente._Endereco.complemento = Console.ReadLine();
+            endereco.complemento = Console.ReadLine();
+            cliente.EnderecoID=
+
+
 
             return cliente;
         }
@@ -116,6 +119,7 @@ namespace ConsoleView
             Console.WriteLine("Nome do Cliente: " + cliente.Nome);
             Console.WriteLine("Cpf do Cliente: " + cliente.Cpf);
             Console.WriteLine("- Endereço - ");
+
             Console.WriteLine("Rua : " + cliente._Endereco.Rua);
             Console.WriteLine("Número: " + cliente._Endereco.Numero);
             Console.WriteLine("Complemento: " + cliente._Endereco.complemento);
