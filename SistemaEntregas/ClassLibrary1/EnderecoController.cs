@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Collections.Generic;
 
-namespace Controller
+namespace controller
 {
     public class EnderecoController
     {
@@ -31,7 +31,6 @@ namespace Controller
             {
                 return end;
             }
-
             return null;
         }
 

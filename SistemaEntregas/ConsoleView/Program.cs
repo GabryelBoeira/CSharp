@@ -8,7 +8,8 @@ namespace ConsoleView
     class ViewPrincipal
     {
         public static ClienteController ccontrol = new ClienteController();
-        public static E
+        public static EnderecoController econtrol = new EnderecoController();
+
         //para casos onde não a mudança nas variaveis 
         enum OpcoesMenuPrincipal
         {
@@ -84,8 +85,7 @@ namespace ConsoleView
         private static Cliente CadastrarCliente()
         {
             Console.Clear();
-            Cliente cliente = new Cliente();
-            Endereco endereco = new Endereco();
+            Cliente cliente = new Cliente();            
 
             Console.WriteLine("Nome do Cliente: " + "\n");
             cliente.Nome = Console.ReadLine();
@@ -93,8 +93,17 @@ namespace ConsoleView
             Console.WriteLine("CPF: " + "\n");
             cliente.Cpf = Console.ReadLine();
 
-            Console.WriteLine("-Endereço- " + "\n");
+          //chama endereço para pegar o enderecoID
+            cliente.EnderecoID = CadastrarEndereco();
 
+            return cliente;
+        }
+
+        private static int CadastrarEndereco()
+        {
+            Endereco endereco = new Endereco();
+
+            Console.WriteLine("- Endereço - " + "\n");
             Console.WriteLine("Rua: ");
             endereco.Rua = Console.ReadLine();
 
@@ -103,15 +112,13 @@ namespace ConsoleView
 
             Console.WriteLine("Complento: ");
             endereco.complemento = Console.ReadLine();
-            cliente.EnderecoID=
 
+           return econtrol.SalvarEndereco(endereco);
 
-
-            return cliente;
         }
 
-        //mostra dados inseridos pelo usuario na CadastrarCliente()
-        private static void ExibirDadosCliente(Cliente cliente)
+    //mostra dados inseridos pelo usuario na CadastrarCliente()
+    private static void ExibirDadosCliente(Cliente cliente)
         {
             Console.Clear();
             Console.WriteLine("-- Dados do cliente --");
@@ -120,9 +127,11 @@ namespace ConsoleView
             Console.WriteLine("Cpf do Cliente: " + cliente.Cpf);
             Console.WriteLine("- Endereço - ");
 
-            Console.WriteLine("Rua : " + cliente._Endereco.Rua);
-            Console.WriteLine("Número: " + cliente._Endereco.Numero);
-            Console.WriteLine("Complemento: " + cliente._Endereco.complemento);
+            Endereco endereco = econtrol.BuscaEndereco(cliente.EnderecoID);
+
+            Console.WriteLine("Rua : " + endereco.Rua);
+            Console.WriteLine("Número: " + endereco.Numero);
+            Console.WriteLine("Complemento: " + endereco.complemento);
             Console.WriteLine("Aperte qualquer Tecla para continuar");
             Console.ReadKey();
 
@@ -151,6 +160,36 @@ namespace ConsoleView
         //editar Cliente
         private static void EditarCliente()
         {
+            string nomeCliente;
+            Cliente cliente = new Cliente();
+            string opcao = "N";
+            Console.Clear();
+            Console.WriteLine("-- Editar Dados do cliente --");
+            Console.Write("Nome do Cliente: ");
+            nomeCliente = Console.ReadLine();
+
+            cliente = ccontrol.PesquisarCliente(nomeCliente);
+
+            if (cliente != null) {
+               
+                Console.WriteLine("Nome do Cliente: " + "\n");
+                cliente.Nome = Console.ReadLine();
+
+                Console.WriteLine("CPF: " + "\n");
+                cliente.Cpf = Console.ReadLine();
+
+                Console.WriteLine("Editar endereço(s/n): ");
+                opcao = Console.ReadLine();
+                //pergunta se o cliente quer alterar o endereco do cliente
+                if (opcao.ToUpper().Equals('S')) {
+                    Console.WriteLine("-- Editar Endereço do cliente --");
+
+                }
+            }
+            else
+            {
+                Console.WriteLine("Cliente não encontrado" + "\n ");
+            }
         }
 
         //excluir Cliente
