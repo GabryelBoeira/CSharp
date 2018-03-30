@@ -1,0 +1,10 @@
+﻿<Window x:Name="MenuPricipal" x:Class="WpfView.Menu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfView"
+        mc:Ignorable="d"
+        Title="Entrega de Encomentas"  Height="400" Width="600" SizeToContent="Manual" WindowState="Normal" ResizeMode="CanResizeWithGrip" Topmost="True" IsTabStop="False" IsHitTestVisible="True" MinWidth="600" MinHeight="399" MaxWidth="900" MaxHeight="650" VerticalContentAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center">
+    <Grid/>
+</Window>

@@ -16,25 +16,14 @@ using System.Windows.Shapes;
 namespace WpfView
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interação lógica para Menu.xam
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Menu : Window
     {
-        public MainWindow()
+        public Menu()
         {
             InitializeComponent();
         }
 
-        private void InitializeComponent()
-        {
-            throw new NotImplementedException();
-        }
-
-        //serve para ligar a tela de cadastro do cliente
-        private void CadastrarClientebtn_Click(object sender, RoutedEventArgs e)
-        {
-            CadastroCliente cadCliente = new CadastroCliente();
-            cadCliente.Show();
-        }
     }
 }
