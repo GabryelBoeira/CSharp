@@ -5,6 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfView"
         mc:Ignorable="d"
-        Title="Entrega de Encomentas"  Height="400" Width="600" SizeToContent="Manual" WindowState="Normal" ResizeMode="CanResizeWithGrip" Topmost="True" IsTabStop="False" IsHitTestVisible="True" MinWidth="600" MinHeight="399" MaxWidth="900" MaxHeight="650" VerticalContentAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center">
-    <Grid/>
+        Title="Entrega de Encomentas"  Height="400" Width="644" SizeToContent="Manual" WindowState="Normal" ResizeMode="CanResizeWithGrip" Topmost="True" IsTabStop="False" IsHitTestVisible="True" MinWidth="600" MinHeight="399" MaxWidth="900" MaxHeight="650" VerticalContentAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="46*"/>
+            <RowDefinition Height="323*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="103*"/>
+            <ColumnDefinition Width="109*"/>
+            <ColumnDefinition Width="106*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Height="26" Margin="10" TextWrapping="Wrap" VerticalAlignment="Top" Width="198" Cursor="None" FontSize="20" FontFamily="Arial" FontWeight="Bold" TextDecorations="{x:Null}" Padding="21,2,0,2" ScrollViewer.CanContentScroll="True" UseLayoutRounding="True"><Run Text=" Menu "/><Run Text="de opções"/></TextBlock>
+
+    </Grid>
 </Window>
