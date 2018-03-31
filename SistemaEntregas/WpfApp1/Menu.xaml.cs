@@ -25,5 +25,13 @@ namespace WpfView
             InitializeComponent();
         }
 
+        private void CadastroCliente_Click(object sender, RoutedEventArgs e)
+        {
+            CadastroCliente cadCli = new CadastroCliente();
+            Close();
+            cadCli.ShowDialog();
+
+        }
+
     }
 }

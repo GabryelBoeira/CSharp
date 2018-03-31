@@ -13,10 +13,10 @@ namespace controller
 
         //adiciona cliente 
         public void SalvarClientes(Cliente cliente) {
-            int tamanho = ultimoID +1;
-            ultimoID = tamanho;           
+            int tamanho = ultimoID + 1;
+            ultimoID = tamanho;
             cliente.PessoaID = tamanho;
-            MeusCliente.Add(cliente);          
+            MeusCliente.Add(cliente);
         }
 
         //pesquisa cliente pelo nome
@@ -25,7 +25,7 @@ namespace controller
             // custQuery e o IEnumerable<Cliente>
             var queryCustomers =
                from cust in MeusCliente
-               //converções
+                   //converções
                where cust.Nome.ToLower().Equals(nomeCliente.Trim().ToLower())
                orderby cust.Nome ascending
                select cust;
@@ -37,7 +37,7 @@ namespace controller
                 }
                 else {
                     return null;
-                }               
+                }
             }
             return null;
         }
@@ -84,14 +84,13 @@ namespace controller
         }
 
         //lista com todos os clientes
-        public List<Cliente> ListarCliente()
-        {
-            return MeusCliente;
-
-        }
+        public List<Cliente> ListarCliente => MeusCliente;
 
         //altera os dados 
-        public Cliente 
+        public void SalvarAlterarCliente()
+        {
+
+        } 
 
     }
 }

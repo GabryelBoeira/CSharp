@@ -22,6 +22,19 @@ namespace WpfView
         public CadastroCliente()
         {
             InitializeComponent();
+        }   
+        
+
+        private void VoltarMenu_Click(object sender, RoutedEventArgs e)
+        {
+            Menu menu = new Menu();
+            Close();
+            menu.Show();
+        }
+
+        private void valueText_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

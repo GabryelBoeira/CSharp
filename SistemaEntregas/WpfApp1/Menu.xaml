@@ -5,18 +5,43 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfView"
         mc:Ignorable="d"
-        Title="Entrega de Encomentas"  Height="400" Width="644" SizeToContent="Manual" WindowState="Normal" ResizeMode="CanResizeWithGrip" Topmost="True" IsTabStop="False" IsHitTestVisible="True" MinWidth="600" MinHeight="399" MaxWidth="900" MaxHeight="650" VerticalContentAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center">
+        Title="Entrega de Encomentas" Height="600" Width="800" SizeToContent="Manual" WindowState="Normal" ResizeMode="CanResizeWithGrip" Topmost="True" IsTabStop="False" IsHitTestVisible="True" MinWidth="800" MinHeight="600" MaxWidth="800" MaxHeight="600" VerticalContentAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" Background="#FFFBF9F9" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" OpacityMask="Black" HorizontalContentAlignment="Center" Grid.IsSharedSizeScope="True">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="46*"/>
-            <RowDefinition Height="323*"/>
+        <Grid.RowDefinitions >
+            <RowDefinition Height="62*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="23*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="134*"/>
+            <RowDefinition Height="344*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="103*"/>
-            <ColumnDefinition Width="109*"/>
-            <ColumnDefinition Width="106*"/>
+            <ColumnDefinition Width="285*" />
+            <ColumnDefinition Width="7*"/>
+            <ColumnDefinition Width="307*"/>
+            <ColumnDefinition Width="7*"/>
+            <ColumnDefinition Width="229*"/>
+            <ColumnDefinition Width="56*"/>
         </Grid.ColumnDefinitions>
-        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Height="26" Margin="10" TextWrapping="Wrap" VerticalAlignment="Top" Width="198" Cursor="None" FontSize="20" FontFamily="Arial" FontWeight="Bold" TextDecorations="{x:Null}" Padding="21,2,0,2" ScrollViewer.CanContentScroll="True" UseLayoutRounding="True"><Run Text=" Menu "/><Run Text="de opções"/></TextBlock>
+
+        <TextBlock x:Name="MenuDeOpcoes" Grid.Column="2" HorizontalAlignment="Left" Height="26" Margin="30,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="204" Cursor="None" FontSize="22" FontFamily="Arial" FontWeight="Bold" TextDecorations="{x:Null}" Padding="21,2,0,2" ScrollViewer.CanContentScroll="True" UseLayoutRounding="True"><Run Text=" "/><Run Text="Menu de opções"/></TextBlock>
+        <TextBlock x:Name="Cadastros" HorizontalAlignment="Left" Height="22" Margin="31,2,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Cursor="None" FontFamily="Arial" FontSize="17" FontWeight="Bold" MaxWidth="149.127" MaxHeight="22" Grid.RowSpan="2"><Run Text="         "/><Run Text=" "/><Run Text="Cadastros "/></TextBlock>
+        <TextBlock x:Name="ConsultaAlteracao" Grid.Column="2" HorizontalAlignment="Left" Height="24" Margin="31,0,0,0" Grid.Row="2" TextWrapping="Wrap" Text="      Consulta e Alterações " Cursor="None" VerticalAlignment="Top" Width="204" FontSize="17" FontWeight="Bold" MaxHeight="22" MaxWidth="204" Grid.RowSpan="2"/>
+        <TextBlock x:Name="Entregas" HorizontalAlignment="Left" Height="22" Margin="54,1,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" FontFamily="Arial" Cursor="None"  FontSize="17" FontWeight="Bold" Grid.Column="4" MaxWidth="149.127" MaxHeight="22"><Run Text="         "/><Run Text=" "/><Run Text="Entregas"/></TextBlock>
+
+        <Rectangle Fill="Black" HorizontalAlignment="Left" Height="507" Grid.Row="1" Grid.RowSpan="5" Stroke="Black" VerticalAlignment="Top" Width="7" Grid.Column="1" Grid.ColumnSpan="2"/>
+        <Rectangle Grid.ColumnSpan="6" Fill="Black" HorizontalAlignment="Left" Height="3" Stroke="Black" VerticalAlignment="Top" Width="792" RenderTransformOrigin="0.5,0.5" Grid.Row="1">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="-1"/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle Fill="Black" HorizontalAlignment="Left" Height="507" Grid.Row="1" Grid.RowSpan="5" Stroke="Black" VerticalAlignment="Top" Width="7" Grid.Column="3" Grid.ColumnSpan="2"/>
+        <Rectangle Grid.ColumnSpan="6" Fill="Black" HorizontalAlignment="Right" Height="3" Grid.Row="3" Stroke="Black" VerticalAlignment="Top" Width="792" RenderTransformOrigin="0.5,0.5"/>
+        <Button x:Name="btnCadastroCliente" FontWeight="Bold" Content="Cadastro de Clientes" HorizontalAlignment="Left" Height="55" Margin="10,10,0,0" Grid.Row="4" VerticalAlignment="Top" Width="203" Click="CadastroCliente_Click"/>
+        <Button x:Name="btnCadastroFornecedor" FontWeight="Bold" Content="Cadastro de Fornecedores " HorizontalAlignment="Left" Height="55" Margin="10,70,0,0" Grid.Row="4" VerticalAlignment="Top" Width="203"/>
+        <Button x:Name="btnCadastroEntregador" FontWeight="Bold" Content="Cadastro de Entregadores" Height="57" Margin="10,130,40,0" Grid.Row="4" VerticalAlignment="Top" Width="Auto" Grid.RowSpan="2"/>
 
     </Grid>
 </Window>

@@ -214,7 +214,7 @@ namespace ConsoleView
 
         //lista com todos os clientes
         private static void ListarCliente() {
-            List<Cliente> lista = ccontrol.ListarCliente();
+            List<Cliente> lista = ccontrol.ListarCliente;
 
             if (lista.Count != 0) {
                 foreach (Cliente dados in lista)
