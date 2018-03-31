@@ -30,7 +30,7 @@ namespace WpfView
             CadastroCliente cadCli = new CadastroCliente();
             Close();
             cadCli.ShowDialog();
-
+            
         }
 
     }

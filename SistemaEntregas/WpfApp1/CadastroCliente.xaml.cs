@@ -32,9 +32,11 @@ namespace WpfView
             menu.Show();
         }
 
-        private void valueText_Click(object sender, RoutedEventArgs e)
+        private void SalvarCliente_Click(object sender, RoutedEventArgs e)
         {
-
+            Menu menu = new Menu();
+            Close();
+            menu.Show();
         }
     }
 }
