@@ -1,11 +1,13 @@
 ﻿using modelos;
 using System.Collections.Generic;
 using System.Linq;
+using modelos.dao;
 
 namespace controller
 {
     public class ClienteController
     {
+       
         // São divididas em três Partes uma query LINQ:
         //  1. Uma lista de dados.
         static List<Cliente> MeusCliente = new List<Cliente>();
@@ -13,6 +15,10 @@ namespace controller
 
         //adiciona cliente 
         public void SalvarClientes(Cliente cliente) {
+            Contexto ctx = new Contexto();
+
+
+
             int tamanho = ultimoID + 1;
             ultimoID = tamanho;
             cliente.PessoaID = tamanho;
@@ -44,50 +50,28 @@ namespace controller
 
         //pesquisa cliente por id
         public Cliente PesquisarClienteId(int idCliente) {
-            // 2.Cria a Query.
-            // custQuery e o IEnumerable<Cliente>
-            var queryCustomers =
-               from cust in MeusCliente
-                   //converções
-               where cust.PessoaID == idCliente
-               orderby cust.Nome ascending
-               select cust;
-            // 3. Query .
+            Contexto ctx = new Contexto();
 
-            foreach (Cliente cust in queryCustomers)
-            {
-                if (cust != null)
-                {
-                    return cust;
-                }
-                else
-                {
-                    return null;
-                }
-            }
-            return null;
+            return ctx.Clientes.Find(idCliente);    
 
         }
 
         //Remover Cliente pelo id
         public bool ExcluirCliente(int idCliente) {
-            Cliente cliente = PesquisarClienteId(idCliente);
-            if (cliente == null) {
-                return false;
-            }
-            else
-            {
-                MeusCliente.Remove(cliente);
-                return true;
-            }
-
+           Contexto ctx = new Contexto();
+            Cliente cliente = ctx.Clientes.Find(idCliente);
+            return true;
         }
 
         //lista com todos os clientes
-        public List<Cliente> ListarCliente => MeusCliente;
+        public List<Cliente> ListarCliente() {
+            Contexto ctx = new Contexto();
+
+            return ctx.Clientes.ToList();
+        }
 
         //altera os dados 
-        public void SalvarAlterarCliente()
+        public void AlterarCliente()
         {
 
         } 

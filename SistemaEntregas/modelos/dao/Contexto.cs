@@ -17,7 +17,7 @@ namespace modelos.dao
         public DbSet<Endereco> Enderecos { get; set; }
         public DbSet<Fornecedor> Fornecedores { get; set; }
         public DbSet<Entregador> Entregadores { get; set; }
-        public int MyProperty { get; set; }
+            
 
 
     }
