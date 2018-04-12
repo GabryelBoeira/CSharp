@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using modelos.dao;
-
+using Controller;
 namespace controller
 {
     public class ClienteController
@@ -28,7 +28,8 @@ namespace controller
         //pesquisa cliente pelo nome
         public Cliente PesquisarCliente(string nomeCliente) {
             // 2.Cria a Query.
-            // custQuery e o IEnumerable<Cliente>
+
+            ContextoSingleton
             var queryCustomers =
                from cust in MeusCliente
                    //converções
@@ -50,15 +51,16 @@ namespace controller
 
         //pesquisa cliente por id
         public Cliente PesquisarClienteId(int idCliente) {
+            //conexao
             Contexto ctx = new Contexto();
-
+            //pesquisa
             return ctx.Clientes.Find(idCliente);    
 
         }
 
         //Remover Cliente pelo id
         public bool ExcluirCliente(int idCliente) {
-           Contexto ctx = new Contexto();
+            Contexto ctx = new Contexto();
             Cliente cliente = ctx.Clientes.Find(idCliente);
             return true;
         }
@@ -66,14 +68,22 @@ namespace controller
         //lista com todos os clientes
         public List<Cliente> ListarCliente() {
             Contexto ctx = new Contexto();
-
             return ctx.Clientes.ToList();
         }
 
         //altera os dados 
-        public void AlterarCliente()
+        public void AlterarCliente(Cliente cliente)
         {
+            Cliente clienteEditar = PesquisarClienteId(cliente.PessoaID);
+            if (clienteEditar != null) {
 
+                clienteEditar.Nome = cliente.Nome;
+                clienteEditar.Cpf = cliente.Cpf;
+                ContextoSingleton.Instancia.Entry(clienteEditar).State = System.Data.Entity.EntityState.Modified;
+
+                ContextoSingleton.Instancia.SaveChanges();
+
+            }
         } 
 
     }
